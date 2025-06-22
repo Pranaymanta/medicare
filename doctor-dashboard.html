@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Dashboard - MediCare Hospital</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Dashboard Header -->
+        <div class="dashboard-header">
+            <div class="container">
+                <div class="dashboard-title">
+                    <h1><i class="fas fa-user-md"></i> Doctor Dashboard</h1>
+                    <div class="dashboard-user">
+                        <div class="user-avatar">D</div>
+                        <div class="user-info">
+                            <h3>Dr. Robert Johnson</h3>
+                            <p>Cardiologist</p>
+                        </div>
+                        <button class="logout-btn" onclick="logout()">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboard Navigation -->
+        <div class="dashboard-nav">
+            <div class="container">
+                <ul class="dashboard-nav-list">
+                    <li class="dashboard-nav-item">
+                        <a href="#overview" class="dashboard-nav-link active" onclick="showSection('overview')">
+                            <i class="fas fa-chart-line"></i> Overview
+                        </a>
+                    </li>
+                    <li class="dashboard-nav-item">
+                        <a href="#appointments" class="dashboard-nav-link" onclick="showSection('appointments')">
+                            <i class="fas fa-calendar-alt"></i> My Appointments
+                        </a>
+                    </li>
+                    <li class="dashboard-nav-item">
+                        <a href="#patients" class="dashboard-nav-link" onclick="showSection('patients')">
+                            <i class="fas fa-users"></i> My Patients
+                        </a>
+                    </li>
+                    <li class="dashboard-nav-item">
+                        <a href="#schedule" class="dashboard-nav-link" onclick="showSection('schedule')">
+                            <i class="fas fa-clock"></i> Schedule
+                        </a>
+                    </li>
+                    <li class="dashboard-nav-item">
+                        <a href="#profile" class="dashboard-nav-link" onclick="showSection('profile')">
+                            <i class="fas fa-user"></i> Profile
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Dashboard Content -->
+        <div class="container">
+            <!-- Overview Section -->
+            <div id="overview" class="dashboard-content">
+                <div class="dashboard-grid">
+                    <div class="dashboard-card stat-card">
+                        <h3><i class="fas fa-calendar-check card-icon"></i> Today's Appointments</h3>
+                        <span class="stat-number">8</span>
+                        <span class="stat-label">Scheduled</span>
+                    </div>
+                    <div class="dashboard-card stat-card">
+                        <h3><i class="fas fa-users card-icon"></i> Total Patients</h3>
+                        <span class="stat-number">342</span>
+                        <span class="stat-label">Under Care</span>
+                    </div>
+                    <div class="dashboard-card stat-card">
+                        <h3><i class="fas fa-clock card-icon"></i> Next Appointment</h3>
+                        <span class="stat-number">10:30</span>
+                        <span class="stat-label">AM Today</span>
+                    </div>
+                    <div class="dashboard-card stat-card">
+                        <h3><i class="fas fa-star card-icon"></i> Rating</h3>
+                        <span class="stat-number">4.8</span>
+                        <span class="stat-label">Patient Reviews</span>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid" style="margin-top: 2rem;">
+                    <div class="dashboard-card">
+                        <h3><i class="fas fa-calendar-day"></i> Today's Schedule</h3>
+                        <div class="schedule-list">
+                            <div class="schedule-item">
+                                <div class="schedule-time">09:00 AM</div>
+                                <div class="schedule-details">
+                                    <strong>John Smith</strong>
+                                    <span>Regular Checkup</span>
+                                </div>
+                                <div class="schedule-status">
+                                    <span class="status-badge status-confirmed">Confirmed</span>
+                                </div>
+                            </div>
+                            <div class="schedule-item">
+                                <div class="schedule-time">10:30 AM</div>
+                                <div class="schedule-details">
+                                    <strong>Sarah Wilson</strong>
+                                    <span>Follow-up Visit</span>
+                                </div>
+                                <div class="schedule-status">
+                                    <span class="status-badge status-confirmed">Confirmed</span>
+                                </div>
+                            </div>
+                            <div class="schedule-item">
+                                <div class="schedule-time">02:00 PM</div>
+                                <div class="schedule-details">
+                                    <strong>Mike Davis</strong>
+                                    <span>Consultation</span>
+                                </div>
+                                <div class="schedule-status">
+                                    <span class="status-badge status-pending">Pending</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dashboard-card">
+                        <h3><i class="fas fa-bell"></i> Recent Notifications</h3>
+                        <div class="notification-list">
+                            <div class="notification-item">
+                                <i class="fas fa-calendar-plus"></i>
+                                <div class="notification-content">
+                                    <strong>New appointment request</strong>
+                                    <span>Patient: Emma Thompson</span>
+                                    <small>5 minutes ago</small>
+                                </div>
+                            </div>
+                            <div class="notification-item">
+                                <i class="fas fa-star"></i>
+                                <div class="notification-content">
+                                    <strong>New patient review</strong>
+                                    <span>5-star rating from John Smith</span>
+                                    <small>1 hour ago</small>
+                                </div>
+                            </div>
+                            <div class="notification-item">
+                                <i class="fas fa-clock"></i>
+                                <div class="notification-content">
+                                    <strong>Schedule reminder</strong>
+                                    <span>Meeting with Dr. Brown at 4 PM</span>
+                                    <small>2 hours ago</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Appointments Section -->
+            <div id="appointments" class="dashboard-content" style="display: none;">
+                <div class="dashboard-card">
+                    <h3><i class="fas fa-calendar-alt"></i> My Appointments</h3>
+                    <div class="quick-actions">
+                        <button class="action-btn action-btn-primary">
+                            <i class="fas fa-plus"></i> Block Time Slot
+                        </button>
+                        <button class="action-btn action-btn-success">
+                            <i class="fas fa-download"></i> Export Schedule
+                        </button>
+                    </div>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Patient</th>
+                                <th>Date & Time</th>
+                                <th>Type</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>John Smith</td>
+                                <td>Dec 25, 2024 - 09:00 AM</td>
+                                <td>Regular Checkup</td>
+                                <td><span class="status-badge status-confirmed">Confirmed</span></td>
+                                <td>
+                                    <button class="action-btn action-btn-primary">View Details</button>
+                                    <button class="action-btn action-btn-success">Complete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Sarah Wilson</td>
+                                <td>Dec 25, 2024 - 10:30 AM</td>
+                                <td>Follow-up</td>
+                                <td><span class="status-badge status-confirmed">Confirmed</span></td>
+                                <td>
+                                    <button class="action-btn action-btn-primary">View Details</button>
+                                    <button class="action-btn action-btn-danger">Reschedule</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Mike Davis</td>
+                                <td>Dec 25, 2024 - 02:00 PM</td>
+                                <td>Consultation</td>
+                                <td><span class="status-badge status-pending">Pending</span></td>
+                                <td>
+                                    <button class="action-btn action-btn-success">Confirm</button>
+                                    <button class="action-btn action-btn-danger">Decline</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Emma Thompson</td>
+                                <td>Dec 26, 2024 - 11:00 AM</td>
+                                <td>New Patient</td>
+                                <td><span class="status-badge status-pending">Pending</span></td>
+                                <td>
+                                    <button class="action-btn action-btn-success">Confirm</button>
+                                    <button class="action-btn action-btn-danger">Decline</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Patients Section -->
+            <div id="patients" class="dashboard-content" style="display: none;">
+                <div class="dashboard-card">
+                    <h3><i class="fas fa-users"></i> My Patients</h3>
+                    <div class="quick-actions">
+                        <button class="action-btn action-btn-primary">
+                            <i class="fas fa-search"></i> Search Patient
+                        </button>
+                        <button class="action-btn action-btn-success">
+                            <i class="fas fa-download"></i> Export List
+                        </button>
+                    </div>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Patient Name</th>
+                                <th>Age</th>
+                                <th>Last Visit</th>
+                                <th>Condition</th>
+                                <th>Next Appointment</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>John Smith</td>
+                                <td>45</td>
+                                <td>Dec 20, 2024</td>
+                                <td>Hypertension</td>
+                                <td>Dec 25, 2024</td>
+                                <td>
+                                    <button class="action-btn action-btn-primary">View History</button>
+                                    <button class="action-btn action-btn-success">Add Notes</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Sarah Wilson</td>
+                                <td>32</td>
+                                <td>Dec 18, 2024</td>
+                                <td>Cardiac Arrhythmia</td>
+                                <td>Dec 25, 2024</td>
+                                <td>
+                                    <button class="action-btn action-btn-primary">View History</button>
+                                    <button class="action-btn action-btn-success">Add Notes</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Mike Davis</td>
+                                <td>28</td>
+                                <td>Dec 15, 2024</td>
+                                <td>Chest Pain</td>
+                                <td>Dec 25, 2024</td>
+                                <td>
+                                    <button class="action-btn action-btn-primary">View History</button>
+                                    <button class="action-btn action-btn-success">Add Notes</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Schedule Section -->
+            <div id="schedule" class="dashboard-content" style="display: none;">
+                <div class="dashboard-grid">
+                    <div class="dashboard-card">
+                        <h3><i class="fas fa-clock"></i> Weekly Schedule</h3>
+                        <div class="schedule-grid">
+                            <div class="schedule-day">
+                                <h4>Monday</h4>
+                                <div class="time-slots">
+                                    <div class="time-slot available">09:00 - 12:00</div>
+                                    <div class="time-slot available">14:00 - 17:00</div>
+                                </div>
+                            </div>
+                            <div class="schedule-day">
+                                <h4>Tuesday</h4>
+                                <div class="time-slots">
+                                    <div class="time-slot available">09:00 - 12:00</div>
+                                    <div class="time-slot blocked">14:00 - 17:00</div>
+                                </div>
+                            </div>
+                            <div class="schedule-day">
+                                <h4>Wednesday</h4>
+                                <div class="time-slots">
+                                    <div class="time-slot available">09:00 - 12:00</div>
+                                    <div class="time-slot available">14:00 - 17:00</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="quick-actions">
+                            <button class="action-btn action-btn-primary">
+                                <i class="fas fa-edit"></i> Edit Schedule
+                            </button>
+                            <button class="action-btn action-btn-danger">
+                                <i class="fas fa-ban"></i> Block Time
+                            </button>
+                        </div>
+                    </div>
+                    <div class="dashboard-card">
+                        <h3><i class="fas fa-calendar-week"></i> Availability Settings</h3>
+                        <div class="availability-form">
+                            <div class="form-group">
+                                <label class="form-label">Working Hours</label>
+                                <div class="time-range">
+                                    <input type="time" class="form-input" value="09:00">
+                                    <span>to</span>
+                                    <input type="time" class="form-input" value="17:00">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Break Time</label>
+                                <div class="time-range">
+                                    <input type="time" class="form-input" value="12:00">
+                                    <span>to</span>
+                                    <input type="time" class="form-input" value="13:00">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Appointment Duration</label>
+                                <select class="form-select">
+                                    <option value="30">30 minutes</option>
+                                    <option value="45">45 minutes</option>
+                                    <option value="60">1 hour</option>
+                                </select>
+                            </div>
+                            <button class="action-btn action-btn-primary">
+                                <i class="fas fa-save"></i> Save Settings
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile Section -->
+            <div id="profile" class="dashboard-content" style="display: none;">
+                <div class="dashboard-grid">
+                    <div class="dashboard-card">
+                        <h3><i class="fas fa-user"></i> Personal Information</h3>
+                        <div class="profile-form">
+                            <div class="form-group">
+                                <label class="form-label">Full Name</label>
+                                <input type="text" class="form-input" value="Dr. Robert Johnson">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Specialization</label>
+                                <input type="text" class="form-input" value="Cardiology">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Experience</label>
+                                <input type="text" class="form-input" value="15 years">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Email</label>
+                                <input type="email" class="form-input" value="robert.johnson@medicare.com">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Phone</label>
+                                <input type="tel" class="form-input" value="(555) 123-4567">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Bio</label>
+                                <textarea class="form-textarea">Dr. Robert Johnson is a highly experienced cardiologist with over 15 years of practice. He specializes in interventional cardiology and has performed over 2000 successful procedures.</textarea>
+                            </div>
+                            <button class="action-btn action-btn-primary">
+                                <i class="fas fa-save"></i> Update Profile
+                            </button>
+                        </div>
+                    </div>
+                    <div class="dashboard-card">
+                        <h3><i class="fas fa-chart-bar"></i> Performance Stats</h3>
+                        <div class="stats-list">
+                            <div class="stat-item">
+                                <span class="stat-label">Total Patients Treated</span>
+                                <span class="stat-value">2,847</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Success Rate</span>
+                                <span class="stat-value">98.5%</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Patient Satisfaction</span>
+                                <span class="stat-value">4.8/5</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Years of Experience</span>
+                                <span class="stat-value">15</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Dashboard navigation
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.dashboard-content');
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
+            
+            // Remove active class from all nav links
+            const navLinks = document.querySelectorAll('.dashboard-nav-link');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionId).style.display = 'block';
+            
+            // Add active class to clicked nav link
+            event.target.classList.add('active');
+        }
+
+        // Logout function
+        function logout() {
+            if (confirm('Are you sure you want to logout?')) {
+                localStorage.removeItem('userRole');
+                localStorage.removeItem('userEmail');
+                window.location.href = 'login.html';
+            }
+        }
+
+        // Check authentication
+        document.addEventListener('DOMContentLoaded', function() {
+            const userRole = localStorage.getItem('userRole');
+            if (userRole !== 'doctor') {
+                alert('Access denied. Doctor privileges required.');
+                window.location.href = 'login.html';
+            }
+        });
+    </script>
+</body>
+</html>

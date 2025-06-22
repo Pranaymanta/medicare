@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Doctors - MediCare Hospital</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <i class="fas fa-hospital"></i>
+                    <span>MediCare</span>
+                </div>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="doctors.html" class="nav-link active">Doctors</a></li>
+                    <li><a href="appointments.html" class="nav-link">Book Appointment</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="nav-auth">
+                    <a href="login.html" class="btn btn-outline">Login</a>
+                    <a href="register.html" class="btn btn-primary">Register</a>
+                </div>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Our Expert Doctors</h1>
+            <p>Meet our team of experienced medical professionals</p>
+        </div>
+    </section>
+
+    <!-- Doctors Section -->
+    <section class="doctors-section">
+        <div class="container">
+            <div class="doctors-grid" id="doctorsGrid">
+                <!-- Sample doctors - in real app, this would be loaded dynamically -->
+                <div class="doctor-card">
+                    <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=300&h=300&fit=crop&crop=face" alt="Dr. John Smith" class="doctor-image">
+                    <div class="doctor-info">
+                        <h3>Dr. John Smith</h3>
+                        <p class="doctor-specialty">Cardiologist</p>
+                        <p class="doctor-experience">10 years experience</p>
+                        <div class="doctor-rating">
+                            <span class="stars">★★★★★</span>
+                            <span>4.8</span>
+                        </div>
+                        <p class="doctor-fee">Fee: $200</p>
+                        <div class="doctor-actions">
+                            <button class="btn btn-outline btn-sm">View Profile</button>
+                            <a href="appointments.html" class="btn btn-primary btn-sm">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doctor-card">
+                    <img src="https://images.unsplash.com/photo-1594824475317-d8b0b4b5b8b5?w=300&h=300&fit=crop&crop=face" alt="Dr. Sarah Johnson" class="doctor-image">
+                    <div class="doctor-info">
+                        <h3>Dr. Sarah Johnson</h3>
+                        <p class="doctor-specialty">Neurologist</p>
+                        <p class="doctor-experience">8 years experience</p>
+                        <div class="doctor-rating">
+                            <span class="stars">★★★★★</span>
+                            <span>4.9</span>
+                        </div>
+                        <p class="doctor-fee">Fee: $250</p>
+                        <div class="doctor-actions">
+                            <button class="btn btn-outline btn-sm">View Profile</button>
+                            <a href="appointments.html" class="btn btn-primary btn-sm">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doctor-card">
+                    <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=300&h=300&fit=crop&crop=face" alt="Dr. Michael Brown" class="doctor-image">
+                    <div class="doctor-info">
+                        <h3>Dr. Michael Brown</h3>
+                        <p class="doctor-specialty">Pediatrician</p>
+                        <p class="doctor-experience">12 years experience</p>
+                        <div class="doctor-rating">
+                            <span class="stars">★★★★★</span>
+                            <span>4.7</span>
+                        </div>
+                        <p class="doctor-fee">Fee: $150</p>
+                        <div class="doctor-actions">
+                            <button class="btn btn-outline btn-sm">View Profile</button>
+                            <a href="appointments.html" class="btn btn-primary btn-sm">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-hospital"></i>
+                        <span>MediCare</span>
+                    </div>
+                    <p>Providing quality healthcare services with compassion and excellence.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="doctors.html">Doctors</a></li>
+                        <li><a href="appointments.html">Appointments</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li>Emergency Care</li>
+                        <li>Cardiology</li>
+                        <li>Neurology</li>
+                        <li>Pediatrics</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li>123 Medical Center Dr</li>
+                        <li>Healthcare City, HC 12345</li>
+                        <li>Phone: (555) 123-4567</li>
+                        <li>Email: info@medicare.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 MediCare Hospital. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

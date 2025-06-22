@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - MediCare Hospital</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Dashboard Header -->
+        <div class="dashboard-header">
+            <div class="container">
+                <div class="dashboard-title">
+                    <h1><i class="fas fa-user-shield"></i> Admin Dashboard</h1>
+                    <div class="dashboard-user">
+                        <div class="user-avatar">A</div>
+                        <div class="user-info">
+                            <h3>Admin User</h3>
+                            <p>System Administrator</p>
+                        </div>
+                        <button class="logout-btn" onclick="logout()">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboard Navigation -->
+        <div class="dashboard-nav">
+            <div class="container">
+                <ul class="dashboard-nav-list">
+                    <li class="dashboard-nav-item">
+                        <a href="#overview" class="dashboard-nav-link active" onclick="showSection('overview')">
+                            <i class="fas fa-chart-line"></i> Overview
+                        </a>
+                    </li>
+                    <li class="dashboard-nav-item">
+                        <a href="#appointments" class="dashboard-nav-link" onclick="showSection('appointments')">
+                            <i class="fas fa-calendar-alt"></i> Appointments
+                        </a>
+                    </li>
+                    <li class="dashboard-nav-item">
+                        <a href="#doctors" class="dashboard-nav-link" onclick="showSection('doctors')">
+                            <i class="fas fa-user-md"></i> Doctors
+                        </a>
+                    </li>
+                    <li class="dashboard-nav-item">
+                        <a href="#patients" class="dashboard-nav-link" onclick="showSection('patients')">
+                            <i class="fas fa-users"></i> Patients
+                        </a>
+                    </li>
+                    <li class="dashboard-nav-item">
+                        <a href="#reports" class="dashboard-nav-link" onclick="showSection('reports')">
+                            <i class="fas fa-chart-bar"></i> Reports
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Dashboard Content -->
+        <div class="container">
+            <!-- Overview Section -->
+            <div id="overview" class="dashboard-content">
+                <div class="dashboard-grid">
+                    <div class="dashboard-card stat-card">
+                        <h3><i class="fas fa-calendar-check card-icon"></i> Total Appointments</h3>
+                        <span class="stat-number">1,247</span>
+                        <span class="stat-label">This Month</span>
+                    </div>
+                    <div class="dashboard-card stat-card">
+                        <h3><i class="fas fa-user-md card-icon"></i> Active Doctors</h3>
+                        <span class="stat-number">45</span>
+                        <span class="stat-label">Available</span>
+                    </div>
+                    <div class="dashboard-card stat-card">
+                        <h3><i class="fas fa-users card-icon"></i> Registered Patients</h3>
+                        <span class="stat-number">8,932</span>
+                        <span class="stat-label">Total</span>
+                    </div>
+                    <div class="dashboard-card stat-card">
+                        <h3><i class="fas fa-dollar-sign card-icon"></i> Revenue</h3>
+                        <span class="stat-number">$89,450</span>
+                        <span class="stat-label">This Month</span>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid" style="margin-top: 2rem;">
+                    <div class="dashboard-card">
+                        <h3><i class="fas fa-clock"></i> Recent Activities</h3>
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <i class="fas fa-user-plus"></i>
+                                <span>New patient registered: John Smith</span>
+                                <small>2 minutes ago</small>
+                            </div>
+                            <div class="activity-item">
+                                <i class="fas fa-calendar-check"></i>
+                                <span>Appointment confirmed with Dr. Johnson</span>
+                                <small>15 minutes ago</small>
+                            </div>
+                            <div class="activity-item">
+                                <i class="fas fa-user-md"></i>
+                                <span>Dr. Williams updated schedule</span>
+                                <small>1 hour ago</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dashboard-card">
+                        <h3><i class="fas fa-exclamation-triangle"></i> System Alerts</h3>
+                        <div class="alert-list">
+                            <div class="alert-item warning">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <span>Server maintenance scheduled for tonight</span>
+                            </div>
+                            <div class="alert-item info">
+                                <i class="fas fa-info-circle"></i>
+                                <span>New software update available</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Appointments Section -->
+            <div id="appointments" class="dashboard-content" style="display: none;">
+                <div class="dashboard-card">
+                    <h3><i class="fas fa-calendar-alt"></i> Appointment Management</h3>
+                    <div class="quick-actions">
+                        <button class="action-btn action-btn-primary">
+                            <i class="fas fa-plus"></i> New Appointment
+                        </button>
+                        <button class="action-btn action-btn-success">
+                            <i class="fas fa-download"></i> Export Data
+                        </button>
+                    </div>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Patient</th>
+                                <th>Doctor</th>
+                                <th>Date & Time</th>
+                                <th>Department</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>John Smith</td>
+                                <td>Dr. Johnson</td>
+                                <td>Dec 25, 2024 - 10:00 AM</td>
+                                <td>Cardiology</td>
+                                <td><span class="status-badge status-confirmed">Confirmed</span></td>
+                                <td>
+                                    <button class="action-btn action-btn-primary">Edit</button>
+                                    <button class="action-btn action-btn-danger">Cancel</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Sarah Wilson</td>
+                                <td>Dr. Brown</td>
+                                <td>Dec 25, 2024 - 2:00 PM</td>
+                                <td>Neurology</td>
+                                <td><span class="status-badge status-pending">Pending</span></td>
+                                <td>
+                                    <button class="action-btn action-btn-success">Confirm</button>
+                                    <button class="action-btn action-btn-danger">Cancel</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Mike Davis</td>
+                                <td>Dr. Taylor</td>
+                                <td>Dec 24, 2024 - 11:00 AM</td>
+                                <td>Pediatrics</td>
+                                <td><span class="status-badge status-completed">Completed</span></td>
+                                <td>
+                                    <button class="action-btn action-btn-primary">View</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Doctors Section -->
+            <div id="doctors" class="dashboard-content" style="display: none;">
+                <div class="dashboard-card">
+                    <h3><i class="fas fa-user-md"></i> Doctor Management</h3>
+                    <div class="quick-actions">
+                        <button class="action-btn action-btn-primary">
+                            <i class="fas fa-plus"></i> Add Doctor
+                        </button>
+                        <button class="action-btn action-btn-success">
+                            <i class="fas fa-download"></i> Export List
+                        </button>
+                    </div>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Specialization</th>
+                                <th>Experience</th>
+                                <th>Contact</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Dr. Robert Johnson</td>
+                                <td>Cardiology</td>
+                                <td>15 years</td>
+                                <td>robert.johnson@medicare.com</td>
+                                <td><span class="status-badge status-confirmed">Active</span></td>
+                                <td>
+                                    <button class="action-btn action-btn-primary">Edit</button>
+                                    <button class="action-btn action-btn-danger">Suspend</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Emily Brown</td>
+                                <td>Neurology</td>
+                                <td>12 years</td>
+                                <td>emily.brown@medicare.com</td>
+                                <td><span class="status-badge status-confirmed">Active</span></td>
+                                <td>
+                                    <button class="action-btn action-btn-primary">Edit</button>
+                                    <button class="action-btn action-btn-danger">Suspend</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Michael Taylor</td>
+                                <td>Pediatrics</td>
+                                <td>8 years</td>
+                                <td>michael.taylor@medicare.com</td>
+                                <td><span class="status-badge status-confirmed">Active</span></td>
+                                <td>
+                                    <button class="action-btn action-btn-primary">Edit</button>
+                                    <button class="action-btn action-btn-danger">Suspend</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Patients Section -->
+            <div id="patients" class="dashboard-content" style="display: none;">
+                <div class="dashboard-card">
+                    <h3><i class="fas fa-users"></i> Patient Management</h3>
+                    <div class="quick-actions">
+                        <button class="action-btn action-btn-primary">
+                            <i class="fas fa-plus"></i> Add Patient
+                        </button>
+                        <button class="action-btn action-btn-success">
+                            <i class="fas fa-download"></i> Export Data
+                        </button>
+                    </div>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Last Visit</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>John Smith</td>
+                                <td>john.smith@email.com</td>
+                                <td>(555) 123-4567</td>
+                                <td>Dec 20, 2024</td>
+                                <td><span class="status-badge status-confirmed">Active</span></td>
+                                <td>
+                                    <button class="action-btn action-btn-primary">View</button>
+                                    <button class="action-btn action-btn-success">Edit</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Sarah Wilson</td>
+                                <td>sarah.wilson@email.com</td>
+                                <td>(555) 234-5678</td>
+                                <td>Dec 18, 2024</td>
+                                <td><span class="status-badge status-confirmed">Active</span></td>
+                                <td>
+                                    <button class="action-btn action-btn-primary">View</button>
+                                    <button class="action-btn action-btn-success">Edit</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Mike Davis</td>
+                                <td>mike.davis@email.com</td>
+                                <td>(555) 345-6789</td>
+                                <td>Dec 15, 2024</td>
+                                <td><span class="status-badge status-confirmed">Active</span></td>
+                                <td>
+                                    <button class="action-btn action-btn-primary">View</button>
+                                    <button class="action-btn action-btn-success">Edit</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Reports Section -->
+            <div id="reports" class="dashboard-content" style="display: none;">
+                <div class="dashboard-grid">
+                    <div class="dashboard-card">
+                        <h3><i class="fas fa-chart-line"></i> Monthly Statistics</h3>
+                        <div class="report-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">Total Appointments</span>
+                                <span class="stat-value">1,247</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Completed</span>
+                                <span class="stat-value">1,089</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Cancelled</span>
+                                <span class="stat-value">158</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Revenue</span>
+                                <span class="stat-value">$89,450</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dashboard-card">
+                        <h3><i class="fas fa-download"></i> Generate Reports</h3>
+                        <div class="report-actions">
+                            <button class="action-btn action-btn-primary">
+                                <i class="fas fa-file-pdf"></i> Monthly Report
+                            </button>
+                            <button class="action-btn action-btn-success">
+                                <i class="fas fa-file-excel"></i> Patient Data
+                            </button>
+                            <button class="action-btn action-btn-primary">
+                                <i class="fas fa-chart-bar"></i> Analytics Report
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Dashboard navigation
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.dashboard-content');
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
+            
+            // Remove active class from all nav links
+            const navLinks = document.querySelectorAll('.dashboard-nav-link');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionId).style.display = 'block';
+            
+            // Add active class to clicked nav link
+            event.target.classList.add('active');
+        }
+
+        // Logout function
+        function logout() {
+            if (confirm('Are you sure you want to logout?')) {
+                localStorage.removeItem('userRole');
+                localStorage.removeItem('userEmail');
+                window.location.href = 'login.html';
+            }
+        }
+
+        // Check authentication
+        document.addEventListener('DOMContentLoaded', function() {
+            const userRole = localStorage.getItem('userRole');
+            if (userRole !== 'admin') {
+                alert('Access denied. Admin privileges required.');
+                window.location.href = 'login.html';
+            }
+        });
+    </script>
+</body>
+</html>

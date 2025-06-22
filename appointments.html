@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Appointment - MediCare Hospital</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <i class="fas fa-hospital"></i>
+                    <span>MediCare</span>
+                </div>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="doctors.html" class="nav-link">Doctors</a></li>
+                    <li><a href="appointments.html" class="nav-link active">Book Appointment</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="nav-auth">
+                    <a href="login.html" class="btn btn-outline">Login</a>
+                    <a href="register.html" class="btn btn-primary">Register</a>
+                </div>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Book an Appointment</h1>
+            <p>Schedule your visit with our expert doctors</p>
+        </div>
+    </section>
+
+    <!-- Appointment Form -->
+    <section class="appointment-form-section">
+        <div class="container">
+            <div class="appointment-form-container">
+                <form id="appointmentForm" class="appointment-form">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="patientName" class="form-label">Full Name *</label>
+                            <input type="text" id="patientName" name="patientName" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="patientEmail" class="form-label">Email Address *</label>
+                            <input type="email" id="patientEmail" name="patientEmail" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="patientPhone" class="form-label">Phone Number *</label>
+                            <input type="tel" id="patientPhone" name="patientPhone" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="appointmentDate" class="form-label">Preferred Date *</label>
+                            <input type="date" id="appointmentDate" name="appointmentDate" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="appointmentTime" class="form-label">Preferred Time *</label>
+                            <select id="appointmentTime" name="appointmentTime" class="form-select" required>
+                                <option value="">Select Time</option>
+                                <option value="09:00">09:00 AM</option>
+                                <option value="10:00">10:00 AM</option>
+                                <option value="11:00">11:00 AM</option>
+                                <option value="14:00">02:00 PM</option>
+                                <option value="15:00">03:00 PM</option>
+                                <option value="16:00">04:00 PM</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="department" class="form-label">Department *</label>
+                            <select id="department" name="department" class="form-select" required>
+                                <option value="">Select Department</option>
+                                <option value="cardiology">Cardiology</option>
+                                <option value="neurology">Neurology</option>
+                                <option value="pediatrics">Pediatrics</option>
+                                <option value="general">General Medicine</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="message" class="form-label">Additional Notes</label>
+                        <textarea id="message" name="message" class="form-textarea" placeholder="Please describe your symptoms or any additional information"></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary btn-lg">
+                            <i class="fas fa-calendar-check"></i> Book Appointment
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-hospital"></i>
+                        <span>MediCare</span>
+                    </div>
+                    <p>Providing quality healthcare services with compassion and excellence.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="doctors.html">Doctors</a></li>
+                        <li><a href="appointments.html">Appointments</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li>Emergency Care</li>
+                        <li>Cardiology</li>
+                        <li>Neurology</li>
+                        <li>Pediatrics</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li>123 Medical Center Dr</li>
+                        <li>Healthcare City, HC 12345</li>
+                        <li>Phone: (555) 123-4567</li>
+                        <li>Email: info@medicare.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 MediCare Hospital. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
